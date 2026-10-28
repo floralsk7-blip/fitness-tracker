@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#167a55">
+  <title>Fitness Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="site-header">
+      <div class="brand-mark">✦</div>
+      <div>
+        <p class="eyebrow">YOUR DAILY WELLNESS</p>
+        <h1>Fitness Tracker</h1>
+        <p class="subtitle">Small steps. Stronger habits.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow" id="todayDate">YOUR DAILY SUMMARY</p>
+          <h2>Today at a glance</h2>
+        </div>
+        <span class="status-pill" id="goalBadge">Keep going</span>
+      </section>
+
+      <section class="metrics-grid">
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-icon">👟</span>
+            <span class="metric-label">Steps</span>
+          </div>
+          <p class="metric-value">
+            <span id="todaySteps">0</span>
+            <span class="metric-unit">steps</span>
+          </p>
+          <p class="metric-target">Goal: <span id="goalSteps">10,000</span></p>
+          <div class="progress-track" id="stepsProgress"
+               role="progressbar" aria-label="Steps goal progress"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="barSteps"></div>
+          </div>
+          <p class="progress-caption">
+            <span id="stepsPercent">0%</span> completed
+            <span id="stepsRemaining">10,000 to go</span>
+          </p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-icon">🔥</span>
+            <span class="metric-label">Calories burned</span>
+          </div>
+          <p class="metric-value">
+            <span id="todayCalories">0</span>
+            <span class="metric-unit">kcal</span>
+          </p>
+          <p class="metric-target">Goal: <span id="goalCalories">500</span> kcal</p>
+          <div class="progress-track" id="caloriesProgress"
+               role="progressbar" aria-label="Calories goal progress"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="barCalories"></div>
+          </div>
+          <p class="progress-caption">
+            <span id="caloriesPercent">0%</span> completed
+            <span id="caloriesRemaining">500 to go</span>
+          </p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-icon">⏱️</span>
+            <span class="metric-label">Active time</span>
+          </div>
+          <p class="metric-value">
+            <span id="todayMinutes">0</span>
+            <span class="metric-unit">min</span>
+          </p>
+          <p class="metric-target">Goal: <span id="goalMinutes">60</span> min</p>
+          <div class="progress-track" id="minutesProgress"
+               role="progressbar" aria-label="Active minutes goal progress"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="barMinutes"></div>
+          </div>
+          <p class="progress-caption">
+            <span id="minutesPercent">0%</span> completed
+            <span id="minutesRemaining">60 to go</span>
+          </p>
+        </article>
+
+      </section>
+
+      <section class="content-grid">
+
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR CONSISTENCY</p>
+              <h2>This week</h2>
+            </div>
+            <span class="mini-badge">Last 7 days</span>
+          </div>
+
+          <div class="weekly-stats">
+            <div>
+              <span class="stat-label">Total steps</span>
+              <strong id="weekSteps">0</strong>
+            </div>
+            <div>
+              <span class="stat-label">Daily average</span>
+              <strong id="averageSteps">0</strong>
+            </div>
+          </div>
+
+          <div class="chart-legend">
+            <span class="legend-dot"></span> Steps per day
+          </div>
+
+          <div class="chart" id="weekChart"
+               role="img"
+               aria-label="Steps completed each day over the last seven days">
+          </div>
+
+          <p class="chart-note" id="weekSummary">
+            Log an activity to start building your weekly summary.
+          </p>
+        </article>
+
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MAKE IT COUNT</p>
+              <h2 id="formHeading">Log an activity</h2>
+            </div>
+            <span class="form-icon">＋</span>
+          </div>
+
+          <form id="activityForm" novalidate>
+            <input type="hidden" id="editIndex">
+
+            <div class="field">
+              <label for="type">Activity</label>
+              <select id="type" required>
+                <option value="Walking">Walking</option>
+                <option value="Running">Running</option>
+                <option value="Gym">Gym</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="activityDate">Date</label>
+              <input type="date" id="activityDate" required>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="minutes">Duration (min)</label>
+                <input type="number" id="minutes" min="0"
+                       max="1440" step="1" placeholder="30">
+              </div>
+
+              <div class="field">
+                <label for="calories">Calories (kcal)</label>
+                <input type="number" id="calories" min="0"
+                       max="20000" step="1" placeholder="200">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="steps">Steps</label>
+              <input type="number" id="steps" min="0"
+                     max="200000" step="1" placeholder="4000">
+            </div>
+
+            <p class="form-hint">
+              Enter at least one value. Use whole numbers only.
+            </p>
+
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" id="submitButton">
+                ＋ Add activity
+              </button>
+              <button class="button button-secondary hidden"
+                      type="button" id="cancelEdit">
+                Cancel edit
+              </button>
+            </div>
+
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+
+      </section>
+
+      <section class="panel activity-panel">
+        <div class="section-heading activity-heading">
+          <div>
+            <p class="eyebrow">YOUR PROGRESS, SAVED</p>
+            <h2>Activity history</h2>
+          </div>
+
+          <div class="history-actions">
+            <label class="sr-only" for="activityFilter">Filter activities</label>
+            <select id="activityFilter" class="filter-select">
+              <option value="All">All activities</option>
+              <option value="Walking">Walking</option>
+              <option value="Running">Running</option>
+              <option value="Gym">Gym</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Cycling">Cycling</option>
+              <option value="Swimming">Swimming</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <button class="button button-secondary button-small"
+                    type="button" id="exportButton">
+              Export CSV
+            </button>
+          </div>
+        </div>
+
+        <div id="list" class="activity-list"></div>
+
+        <p class="storage-note">
+          Your entries are saved in this browser on this device.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Progress over perfection. Keep showing up. <span>♥</span></p>
+    </footer>
+
+  </div>
+</body>
+</html>
