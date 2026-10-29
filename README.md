@@ -1,123 +1,57 @@
-# 🏃 Fitness Tracker
+# Fitness Tracker
 
-A simple, responsive fitness tracking dashboard built with **HTML, CSS, and JavaScript**. Track daily activity, monitor your fitness goals, and review your progress throughout the week — all in one place.
+A fitness tracking web app built for the CodeAlpha App Development internship (Task 3).
 
-## ✨ Features
+## Features
 
-- 📊 **Daily Dashboard** — View your steps, calories burned, and workout minutes.
-- 🎯 **Daily Fitness Goals** — Monitor your progress with interactive progress bars.
-- 📅 **Weekly Activity Chart** — Visualize your step count over the last seven days.
-- ➕ **Activity Logging** — Record activities with their duration, calories burned, and steps.
-- ✏️ **Edit and Delete Activities** — Update existing records or remove entries.
-- 🔎 **Activity Filtering** — Filter your activity history.
-- 📥 **Export to CSV** — Export your activity records for further analysis.
-- 💾 **Local Storage** — Keep your records saved in your browser between visits.
-- 📱 **Responsive Design** — Use the dashboard on desktop, tablet, or mobile.
-- ✅ **Input Validation** — Prevent invalid activity values from being submitted.
+- Log daily activities manually (type, duration, calories, steps)
+- Dashboard for today with progress bars for steps, calories and active minutes
+- Daily goals with a "to go" counter and an "All goals reached" badge
+- Live step counter that uses the phone's motion sensor (an estimate)
+- Weekly summary: total steps, daily average and a 7-day bar chart
+- Activity history with icons, a filter by activity type, and delete
+- Data saved in the browser (localStorage), so it stays after a refresh
+- Responsive layout for phones and laptops, with automatic dark mode
 
-## 🛠️ Built With
+## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Page structure and content |
-| CSS3 | Styling, layouts, and responsive design |
-| JavaScript | Dashboard functionality and calculations |
-| Browser Local Storage | Saving activity records locally |
+- HTML for the page structure
+- CSS for the styling and layout (grid and flexbox)
+- JavaScript for the app logic
+- localStorage for saving data
+- DeviceMotion API for the live step counter
 
-## 📂 Project Structure
+## How to Run
 
-```text
-fitness-tracker/
-│
-├── index.html    # Main dashboard
-├── style.css     # Styling and responsive layout
-├── script.js     # Functionality and data management
-├── README.md     # Project documentation
-└── LICENSE       # MIT License (optional)
-```
+1. Download or clone this repository.
+2. Open `index.html` in a browser.
 
-## 🚀 Getting Started
+## Live Demo
 
-You don't need to install any libraries, frameworks, or dependencies to run this project.
+https://yourusername.github.io/CodeAlpha_FitnessTracker/
 
-### 1. Clone the repository
+## Project Structure
 
-Replace `YOUR_USERNAME` with your GitHub username.
+- `index.html`: the page
+- `style.css`: the styling
+- `script.js`: the app logic
 
-```bash
-git clone https://github.com/YOUR_USERNAME/fitness-tracker.git
-```
+## Notes
 
-### 2. Open the project folder
+- The live step counter needs a phone with a motion sensor and a secure (https) page, such as the live demo link. Laptops usually have no motion sensor.
+- It only counts while the page is open and the screen is on, and the count is an estimate.
+- Calories and active minutes are entered manually.
+- Data is stored only in your browser on your device. Clearing browser data removes it.
 
-```bash
-cd fitness-tracker
-```
+## What I Learned
 
-### 3. Run the application
+- Storing data in arrays and objects and redrawing the screen from them
+- Saving and loading data with localStorage
+- Working with dates to build daily and weekly totals
+- Building progress bars and a bar chart with HTML and CSS
+- Using a browser sensor API
+- Validating form input
 
-Open `index.html` in your web browser.
+## Author
 
-Alternatively, open the folder in Visual Studio Code and use the Live Server extension to preview the dashboard.
-
-## 📖 How to Use
-
-1. Open the Fitness Tracker dashboard.
-2. Review your daily steps, calories burned, and workout minutes.
-3. Enter an activity using the activity form.
-4. Provide the activity date, duration, calories burned, and steps.
-5. Add the activity to update your dashboard.
-6. Review your weekly progress and activity history.
-7. Edit or delete entries whenever necessary.
-8. Export your activity history as a CSV file if needed.
-
-## 💾 Data Storage
-
-This project uses your browser's **Local Storage** to save activity records.
-
-- Your records remain available when you reopen the application in the same browser.
-- The project does not require a backend server or database.
-- Data is stored locally in the browser and is not automatically synchronized across devices or browsers.
-- Clearing the browser's site data may delete saved records.
-
-## 🎯 Project Goals
-
-This project was created to practise frontend web development and demonstrate how HTML, CSS, and JavaScript can work together to build an interactive application.
-
-It focuses on responsive UI design, DOM manipulation, form validation, data persistence, and dynamic data visualization.
-
-## 🔮 Future Improvements
-
-Possible enhancements include:
-
-- User authentication and individual profiles.
-- Cloud-based data storage and synchronization.
-- Integration with fitness wearables and health APIs.
-- More detailed fitness statistics and charts.
-- Customizable daily fitness goals.
-- Dark mode.
-- Progressive Web App (PWA) support.
-
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Test the application.
-5. Submit a pull request describing your improvements.
-
-## 📄 License
-
-This project is available under the MIT License. See the `LICENSE` file for details.
-
-## 👩‍💻 Author
-
-**YOUR NAME**
-
-- GitHub: (https://github.com/floralsk7-blip)
-
----
-
-⭐ If you find this project useful, consider giving the repository a star!
+Sheetal Kumari
