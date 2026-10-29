@@ -28,7 +28,7 @@ A fitness tracking web app built for the CodeAlpha App Development internship (T
 
 ## Live Demo
 
-https://floralsk7-blip.github.io/CodeAlpha_FitnessTracker/
+https://floralsk7-blip.github.io/fitness-tracker/
 
 ## Project Structure
 
